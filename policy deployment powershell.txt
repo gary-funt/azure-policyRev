@@ -1,0 +1,7 @@
+$definition = New-AzPolicyDefinition -Name "enforce-like-pattern" -DisplayName "Virtual Machines meet the like condition for a pattern." -description "Ensure VM names meet the like condition for a pattern based on Company policy" -Policy 'https://raw.githubusercontent.com/gary-funt/azure-policyRev/master/VM-naming-likepolicy' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/TextPatterns/enforce-like-pattern/azurepolicy.parameters.json' -Mode All
+
+$definition
+
+$assignment = New-AzPolicyAssignment -Name VMNamePolicy -Scope /subscriptions/4de81b52-b3ab-4fcc-b677-58a1de3d1a32 -PolicyDefinition $definition
+
+$assignment
